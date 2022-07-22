@@ -61,12 +61,24 @@
           <div class="tip__control">
             <span class="tip__control-title"> Select Tip % </span>
             <div class="tip__selector">
-              <span class="tip__selector-item" @click="setTip(5)">5%</span>
-              <span class="tip__selector-item" @click="setTip(10)">10%</span>
-              <span class="tip__selector-item" @click="setTip(15)">15%</span>
-              <span class="tip__selector-item" @click="setTip(25)">25%</span>
-              <span class="tip__selector-item" @click="setTip(50)">50%</span>
-              <span class="tip__selector-item" @click="setTip(5)">Custom</span>
+              <span class="tip__selector-item" @click="setTip(5,$event)"
+                >5%</span
+              >
+              <span class="tip__selector-item" @click="setTip(10,$event)"
+                >10%</span
+              >
+              <span class="tip__selector-item" @click="setTip(15,$event)"
+                >15%</span
+              >
+              <span class="tip__selector-item" @click="setTip(25,$event)"
+                >25%</span
+              >
+              <span class="tip__selector-item" @click="setTip(50,$event)"
+                >50%</span
+              >
+              <input v-model="tipInput" placeholder="Custom" class="tip__selector-input" @keyup="setTipInput"
+                ></input
+              >
             </div>
           </div>
           <div class="tip__control">
@@ -111,7 +123,7 @@
               <span class="tip__result-amount"> ${{total ? total : 0}} </span>
             </div>
           </div>
-          <button class="tip__result-btn" @click="reset">Reset</button>
+          <button class="tip__result-btn" :disabled="checkResetBtn" @click="reset">Reset</button>
         </div>
       </div>
     </div>
@@ -120,7 +132,10 @@
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by
+      <a target="_blank" href="https://www.instagram.com/luisherrerael"
+        >Luis Herrera⚡</a
+      >.
     </div>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="js.js"></script>

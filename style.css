@@ -42,6 +42,10 @@ body::after {
   pointer-events: none;
 }
 
+.container {
+  position: relative;
+}
+
 .tip__control-inputwrapper {
   position: relative;
 }
@@ -88,13 +92,17 @@ input::placeholder {
 .tip-title {
   text-transform: uppercase;
   position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  left: 50%;
+  top: -76px;
 }
 
 .tip-calculator {
   min-height: 480px;
   background-color: white;
   width: 920px;
-  margin-top: 80px;
+  margin-top: 65px;
   border-radius: 20px;
   display: -ms-grid;
   display: grid;
@@ -151,6 +159,22 @@ input::placeholder {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 24px;
+  cursor: pointer;
+}
+
+.tip__selector-input {
+  width: 117px;
+  height: 48px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  text-align: center;
+  padding: 0 14px;
+}
+
+.selected {
+  background-color: #26c0ab;
+  color: #00494d;
 }
 
 .tip__results {
@@ -218,14 +242,17 @@ input::placeholder {
   -ms-flex-item-align: end;
       align-self: flex-end;
   margin-bottom: 1px;
+  cursor: pointer;
 }
 
 .attribution {
-  font-size: 11px;
+  font-size: 12px;
   text-align: center;
+  position: absolute;
+  bottom: 15px;
 }
 
 .attribution a {
-  color: #3e52a3;
+  color: #26c0ab;
 }
 /*# sourceMappingURL=style.css.map */
