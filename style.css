@@ -63,6 +63,22 @@ input:focus {
   outline: 2px solid #26c0ab;
 }
 
+input::-webkit-input-placeholder {
+  color: #7f9c9f;
+}
+
+input:-ms-input-placeholder {
+  color: #7f9c9f;
+}
+
+input::-ms-input-placeholder {
+  color: #7f9c9f;
+}
+
+input::placeholder {
+  color: #7f9c9f;
+}
+
 .input__icon {
   position: absolute;
   left: 19px;

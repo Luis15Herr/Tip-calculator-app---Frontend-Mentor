@@ -54,6 +54,9 @@ input {
   &:focus {
     outline: 2px solid $Strongcyan;
   }
+  &::placeholder {
+    color: $Grayishcyan;
+  }
 }
 .input__icon {
   position: absolute;
