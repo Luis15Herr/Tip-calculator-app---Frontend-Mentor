@@ -1,0 +1,169 @@
+$Strongcyan: hsl(172, 67%, 45%);
+$Verydarkcyan: hsl(183, 100%, 15%);
+$Darkgrayishcyan: hsl(186, 14%, 43%);
+$Grayishcyan: hsl(184, 14%, 56%);
+$Lightgrayishcyan: hsl(185, 41%, 84%);
+$Verylightgrayishcyan: hsl(189, 41%, 97%);
+$White: hsl(0, 0%, 100%);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+body {
+  font-family: "Space Mono", monospace;
+  background-color: $Lightgrayishcyan;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  &::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    left: 0;
+    top: 0;
+    background-image: url(./design/desktop-design-completed.jpg);
+    background-position: center;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+.tip__control-inputwrapper {
+  position: relative;
+}
+input {
+  font-size: 24px;
+  height: 45px;
+  width: 100%;
+  background-color: $Verylightgrayishcyan;
+  font-family: "Space Mono", monospace;
+  color: $Verydarkcyan;
+  border: 0;
+  border-radius: 5px;
+  text-align: right;
+  padding: 0 18px;
+  &:focus {
+    outline: 2px solid $Strongcyan;
+  }
+}
+.input__icon {
+  position: absolute;
+  left: 19px;
+  top: 15px;
+}
+.tip-title {
+  text-transform: uppercase;
+  position: absolute;
+}
+.tip-calculator {
+  min-height: 480px;
+  background-color: $White;
+  width: 920px;
+  margin-top: 80px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 30px 32px;
+}
+.tip__controls {
+  padding: 15px 16px;
+  padding-right: 33px;
+}
+.tip__control {
+  &:first-child {
+    margin-bottom: 42px;
+  }
+  &:nth-child(2) {
+    margin-bottom: 25px;
+  }
+}
+.tip__control-title {
+  display: block;
+  color: $Darkgrayishcyan;
+  margin-bottom: 7px;
+}
+.tip__selector {
+  padding-top: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.tip__selector-item {
+  background-color: $Verydarkcyan;
+  width: 117px;
+  height: 48px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  color: $White;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.tip__results {
+  margin-left: 15px;
+  background-color: $Verydarkcyan;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tip__results-wrapper {
+  width: 100%;
+}
+.tip__results-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2px;
+  height: 70px;
+  margin-bottom: 25px;
+}
+.tip__result-txt {
+  margin-top: 7px;
+  span {
+    display: block;
+    color: $White;
+  }
+  .person {
+    position: relative;
+    color: $Grayishcyan;
+    font-size: 0.84em;
+  }
+}
+
+.tip__result-amount {
+  font-size: 3em;
+  color: $Strongcyan;
+}
+.tip__result-btn {
+  width: 100%;
+  height: 48px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 21px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  background-color: $Strongcyan;
+  color: $Verydarkcyan;
+  align-self: flex-end;
+  margin-bottom: 1px;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
