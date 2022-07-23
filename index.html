@@ -39,11 +39,14 @@
           <div class="tip__control">
             <span class="tip__control-title"> Bill </span>
             <div class="tip__control-inputwrapper">
+              <span class="error__msg">Can't be zero</span>
               <input
-                type="text"
+              @keyup="checkInputs($event)"
+                type="number"
                 class="tip__bill-input"
                 placeholder="0"
                 v-model="bill"
+                
               />
               <svg
                 class="input__icon"
@@ -76,7 +79,7 @@
               <span class="tip__selector-item" @click="setTip(50,$event)"
                 >50%</span
               >
-              <input v-model="tipInput" placeholder="Custom" class="tip__selector-input" @keyup="setTipInput"
+              <input type="number" v-model="tipInput" placeholder="Custom" class="tip__selector-input" @keyup="setTipInput"
                 ></input
               >
             </div>
@@ -84,7 +87,9 @@
           <div class="tip__control">
             <span class="tip__control-title"> Number of People </span>
             <div class="tip__control-inputwrapper">
+              <span class="error__msg">Can't be zero</span>
               <input
+              @keyup="checkInputs($event)"
                 type="text"
                 class="tip__people-input"
                 placeholder="0"
@@ -123,7 +128,7 @@
               <span class="tip__result-amount"> ${{total ? total : 0}} </span>
             </div>
           </div>
-          <button class="tip__result-btn" :disabled="checkResetBtn" @click="reset">Reset</button>
+          <button class="tip__result-btn" :disabled="!checkResetBtn" @click="reset">Reset</button>
         </div>
       </div>
     </div>
@@ -132,7 +137,7 @@
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by
+      >. Coded by 
       <a target="_blank" href="https://www.instagram.com/luisherrerael"
         >Luis Herrera⚡</a
       >.

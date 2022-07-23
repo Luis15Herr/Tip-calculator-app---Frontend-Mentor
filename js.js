@@ -6,9 +6,11 @@ createApp({
     let people = ref(null);
     let tip = ref(null);
     let tipInput = ref(null);
+    let showError = ref(false);
 
     let tipAmount = computed(() => {
-      if (!people.value) return;
+      if (!bill.value || !people.value) return;
+
       total = (bill.value * tip.value) / 100;
       return (total / people.value).toFixed(2);
     });
@@ -33,15 +35,23 @@ createApp({
     }
 
     let checkResetBtn = computed(() => {
-      if (!total.value) return;
-      return true;
+      return people.value > 0;
     });
 
+    function checkInputs(input) {
+      console.log(input.target.value);
+      if (Number(input.target.value) > 0 || input.target.value === "") {
+        input.target.parentNode.classList.remove("error");
+      } else {
+        input.target.parentNode.classList.add("error");
+      }
+    }
+
     function reset() {
+      cachedTip.value.classList.remove("selected");
       bill.value = "";
       people.value = "";
       tip.value = "";
-      tipAmount.value = "";
       total.value = "";
     }
     return {
@@ -55,6 +65,8 @@ createApp({
       reset,
       setTipInput,
       checkResetBtn,
+      checkInputs,
+      showError,
     };
   },
 }).mount("#app");

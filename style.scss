@@ -31,8 +31,8 @@ body {
     content: "";
     left: 0;
     top: 0;
-    background-image: url(./design/desktop-design-completed.jpg);
-    background-position: center;
+    background-image: url(./design/mobile-design.jpg);
+    background-position: top;
     opacity: 0;
     pointer-events: none;
   }
@@ -61,6 +61,16 @@ input {
   &::placeholder {
     color: $Grayishcyan;
   }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 .input__icon {
   position: absolute;
@@ -133,6 +143,21 @@ input {
   background-color: $Strongcyan;
   color: $Verydarkcyan;
 }
+.error__msg {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: -30px;
+  color: #c76f65;
+}
+.error {
+  .error__msg {
+    opacity: 1;
+  }
+  input:focus {
+    outline: 2px solid #c76f65;
+  }
+}
 
 .tip__results {
   margin-left: 15px;
@@ -184,6 +209,9 @@ input {
   align-self: flex-end;
   margin-bottom: 1px;
   cursor: pointer;
+  &:disabled {
+    opacity: 0.3;
+  }
 }
 .attribution {
   font-size: 12px;
@@ -193,4 +221,64 @@ input {
 }
 .attribution a {
   color: $Strongcyan;
+}
+
+@media screen and (max-width: 600px) {
+  html,
+  body {
+    height: auto;
+  }
+  .container {
+    text-align: center;
+  }
+  .tip-title {
+    margin-top: 50px;
+    margin-bottom: 30px;
+
+    position: initial;
+    transform: initial;
+    top: initial;
+    left: initial;
+  }
+  .tip-calculator {
+    padding: 15px;
+    margin-top: 0;
+    width: 100%;
+    grid-template-columns: 1fr;
+    text-align: left;
+    border-radius: 20px 20px 0 0px;
+    padding-bottom: 50px;
+  }
+  .tip__controls {
+    padding: 15px 17px;
+  }
+  .tip__control:first-child {
+    margin-bottom: 35px;
+  }
+  .tip__control:nth-child(2) {
+    margin-bottom: 18px;
+  }
+  .tip__selector-item,
+  .tip__selector-input {
+    width: 48%;
+  }
+  .tip__results {
+    margin: 18px 10px;
+    padding: 26px 22px;
+  }
+  .tip__results-item {
+    margin-top: 0;
+    &:first-child {
+      margin-bottom: 0px;
+    }
+    &:last-child {
+      margin-bottom: 20px;
+    }
+  }
+  .tip__result-txt {
+    margin-top: 0;
+  }
+  .tip__result-amount {
+    font-size: 2.1em;
+  }
 }
