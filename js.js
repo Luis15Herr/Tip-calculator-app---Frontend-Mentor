@@ -9,14 +9,15 @@ createApp({
     let showError = ref(false);
 
     let tipAmount = computed(() => {
-      if (!bill.value || !people.value) return;
+      if (bill.value <= 0 || people.value <= 0) return;
 
       total = (bill.value * tip.value) / 100;
       return (total / people.value).toFixed(2);
     });
 
     let total = computed(() => {
-      if (!bill.value || !people.value) return;
+      if (bill.value <= 0 || people.value <= 0) return;
+
       total = bill.value / people.value;
       return (total + Number(tipAmount.value)).toFixed(2);
     });
